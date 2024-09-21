@@ -31,6 +31,7 @@ jobs:
         run: dotnet pack --configuration Release --output ${{ env.OUT_PATH }} /p:Version=${{ steps.version.outputs.version }}
 
       - name: Publish
+        shell: pwsh
         run: |
           foreach ($file in (Get-ChildItem "${{ env.OUT_PATH }}" -Recurse -Include *.nupkg)) {
             dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
