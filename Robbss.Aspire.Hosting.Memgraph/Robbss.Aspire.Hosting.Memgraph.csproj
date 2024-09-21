@@ -9,6 +9,7 @@
 		<PackageName></PackageName>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>aspire integration hosting memgraph</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -22,6 +23,7 @@
 
 	<ItemGroup>
 		<None Include="icon.png" Pack="true" PackagePath="" />
+		<None Include="..\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>
