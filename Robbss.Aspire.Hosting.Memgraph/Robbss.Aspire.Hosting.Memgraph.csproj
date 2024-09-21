@@ -4,7 +4,9 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Description>Memgraph support for .NET Aspire.</Description>
 		<Authors>Robert Conan McMillan</Authors>
+		<RootNamespace>Aspire.Hosting</RootNamespace>
 		<IsPackable>true</IsPackable>
+		<PackageName></PackageName>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>aspire integration hosting memgraph</PackageTags>
 	</PropertyGroup>

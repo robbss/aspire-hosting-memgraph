@@ -1,6 +1,6 @@
 ﻿using Aspire.Hosting.ApplicationModel;
 
-namespace Aspire.Hosting.Memgraph;
+namespace Aspire.Hosting;
 
 /// <summary>
 /// A resource that represents a Memgraph container.

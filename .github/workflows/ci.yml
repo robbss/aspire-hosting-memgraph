@@ -24,7 +24,6 @@ jobs:
         id: version
         uses: PaulHatch/semantic-version@v5.4.0
         with:
-          bump_each_commit: true
           version_format: "${major}.${minor}.${patch}"
 
       - name: Pack

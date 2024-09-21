@@ -1,4 +1,4 @@
-﻿namespace Aspire.Hosting.Memgraph;
+﻿namespace Aspire.Hosting;
 
 internal static class MemgraphImageTags
 {

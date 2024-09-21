@@ -1,6 +1,6 @@
 ﻿using Aspire.Hosting.ApplicationModel;
 
-namespace Aspire.Hosting.Memgraph;
+namespace Aspire.Hosting;
 
 /// <summary>
 /// Provides extension methods for adding Memgraph resources to an <see cref="IDistributedApplicationBuilder"/>.

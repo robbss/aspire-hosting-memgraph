@@ -1,6 +1,6 @@
 ﻿using Aspire.Hosting.ApplicationModel;
 
-namespace Aspire.Hosting.Memgraph;
+namespace Aspire.Hosting;
 
 public class MemgraphLabContainerResource(string name) : ContainerResource(name)
 {
