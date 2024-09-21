@@ -1,0 +1,50 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_NOLOGO: true
+  OUT_PATH: ${{ github.workspace }}/output
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Determine version
+        id: version
+        uses: PaulHatch/semantic-version@v5.4.0
+        with:
+          bump_each_commit: true
+          version_format: "${major}.${minor}.${patch}"
+
+      - name: Pack
+        run: dotnet pack --configuration Release --output ${{ env.OUT_PATH }} /p:Version=${{ steps.version.outputs.version }}
+
+      - name: Publish
+        run: |
+          foreach ($file in (Get-ChildItem "${{ env.OUT_PATH }}" -Recurse -Include *.nupkg)) {
+            dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          }
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create github release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }} 
