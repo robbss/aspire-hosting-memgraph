@@ -49,7 +49,6 @@ public static class MemgraphBuilderExtensions
             .WithHttpEndpoint(targetPort: 3000, name: "http")
             .ExcludeFromManifest();
 
-#pragma warning disable ASPIREEVENTING001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
         builder.ApplicationBuilder.Eventing.Subscribe<AfterEndpointsAllocatedEvent>((@event, ct) =>
         {
             var instances = builder.ApplicationBuilder.Resources.OfType<MemgraphContainerResource>();
@@ -68,7 +67,6 @@ public static class MemgraphBuilderExtensions
 
             return Task.CompletedTask;
         });
-#pragma warning restore ASPIREEVENTING001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
         configureContainer?.Invoke(labBuilder);
 
