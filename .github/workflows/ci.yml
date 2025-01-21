@@ -27,6 +27,11 @@ jobs:
         with:
           version_format: "${major}.${minor}.${patch}"
 
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.x'
+
       - name: Pack
         run: dotnet pack --configuration Release --output ${{ env.OUT_PATH }} /p:Version=${{ steps.version.outputs.version }}
 
