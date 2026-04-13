@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<Description>Memgraph support for .NET Aspire.</Description>
 		<Authors>Robert Conan McMillan</Authors>
 		<RootNamespace>Aspire.Hosting</RootNamespace>
@@ -18,7 +18,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.Hosting" Version="9.0.0" />
+		<PackageReference Include="Aspire.Hosting" Version="13.2.2" />
 	</ItemGroup>
 
 	<ItemGroup>
