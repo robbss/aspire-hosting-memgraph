@@ -62,7 +62,7 @@ public static class MemgraphBuilderExtensions
 			var endpoint = instance.PrimaryEndpoint;
 
 			labBuilder
-				.WithEnvironment("QUICK_CONNECT_MG_HOST", endpoint)
+				.WithEnvironment("QUICK_CONNECT_MG_HOST", endpoint.Host)
 				.WithEnvironment("QUICK_CONNECT_MG_PORT", endpoint.Port.ToString());
 
 			return Task.CompletedTask;
